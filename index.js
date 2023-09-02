@@ -1,11 +1,19 @@
 var arr = [100, 76, 6, 52, 45, 8921, 24, 14, 54, 85, 143, 98, 65, 512, 96, 99, 4, 79];
 
+function genRandomArray(size){
+  const array = [];
+  for (let i=0; i<size; i++){
+    array.push(Math.floor(Math.random() * 1000));
+  };
+  return array;
+}
+
 function bubble_sort(arr){
   const ini = performance.now()
   console.log(ini)
   const end = performance.now()
   if (arr.length <= 1 || arr == undefined) {
-    console.log("Erro")
+    console.log("Error")
     return arr;
   }
   for (let j = 0; j < arr.length ; j++) {
@@ -38,5 +46,7 @@ function quick_sort(arr){
   return [...quick_sort(leftArr), pivot, ...quick_sort(rightArr)];
 };
 
-console.log(bubble_sort(arr))
-console.log(quick_sort(arr))
+let array = genRandomArray(10);
+
+console.log(bubble_sort(array));
+console.log(quick_sort(array));
